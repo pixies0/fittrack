@@ -1,28 +1,44 @@
 from django.contrib.auth.base_user import BaseUserManager
+from django.contrib.auth.models import Group
+from django.db import transaction
+
+from fittrack.constants import Grupos
 
 
 class UsuarioManager(BaseUserManager):
     use_in_migrations = True
 
+    @transaction.atomic
     def create_user(self, email, password=None, **extra_fields):
+        """
+        Cria um usuário comum.
+        """
+
         if not email:
             raise ValueError("O e-mail é obrigatório.")
 
         email = self.normalize_email(email)
 
-        user = self.model(email=email, **extra_fields)
+        usuario = self.model(
+            email=email,
+            **extra_fields,
+        )
 
-        user.set_password(password)
-        user.save(using=self._db)
+        usuario.set_password(password)
 
-        return user
+        usuario.save(using=self._db)
 
+        return usuario
+
+    @transaction.atomic
     def create_superuser(self, email, password=None, **extra_fields):
+        """
+        Cria um superusuário.
+        """
 
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
         extra_fields.setdefault("is_active", True)
-        extra_fields.setdefault("role", "ADMIN")
 
         if extra_fields.get("is_staff") is not True:
             raise ValueError("Superuser precisa ter is_staff=True.")
@@ -30,4 +46,14 @@ class UsuarioManager(BaseUserManager):
         if extra_fields.get("is_superuser") is not True:
             raise ValueError("Superuser precisa ter is_superuser=True.")
 
-        return self.create_user(email=email, password=password, **extra_fields)
+        usuario = self.create_user(
+            email=email,
+            password=password,
+            **extra_fields,
+        )
+
+        grupo, _ = Group.objects.get_or_create(name=Grupos.ADMINISTRADOR)
+
+        usuario.groups.add(grupo)
+
+        return usuario

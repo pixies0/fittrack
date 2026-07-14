@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base_public.html' %}
 
 {% load crispy_forms_tags %}
 {% load static %}
@@ -7,24 +7,84 @@
   Login | FitTrack
 {% endblock %}
 
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/pages/login.css' %}" />
+{% endblock %}
+
 {% block content %}
-  <div class="login-page">
-    <div class="login-card">
-      <div class="login-logo">
-        <img src="{% static 'img/logo.svg' %}" alt="FitTrack" />
+  <div class="login-container">
+    <!-- ========================= -->
+    <!-- LADO ESQUERDO -->
+    <!-- ========================= -->
+
+    <section class="login-brand">
+      <div class="brand-overlay"></div>
+
+      <div class="brand-content">
+        <img src="{% static 'img/logo.svg' %}" alt="FitTrack" class="brand-logo" />
+
+        <h1 style="color: #f77f00;">FITTRACK</h1>
+
+        <p class="brand-subtitle">Gestão inteligente para academias.</p>
+
+        <div class="brand-divider"></div>
+
+        <ul class="brand-features">
+          <div class="brand-stats">
+            <div class="stat">
+              <h3>+500</h3>
+
+              <span>Alunos</span>
+            </div>
+
+            <div class="stat">
+              <h3>+120</h3>
+
+              <span>Treinos</span>
+            </div>
+
+            <div class="stat">
+              <h3>24h</h3>
+
+              <span>Disponível</span>
+            </div>
+          </div>
+        </ul>
+
+        <div class="brand-footer">Desenvolvido por pixies0</div>
       </div>
+    </section>
 
-      <h1>FitTrack</h1>
+    <!-- ========================= -->
+    <!-- LOGIN -->
+    <!-- ========================= -->
 
-      <p>Faça login para acessar o sistema.</p>
+    <section class="login-panel">
+      <div class="login-card">
+        <div class="login-header">
+          <span class="login-badge">Plataforma de Gestão</span>
 
-      <form method="post">
-        {% csrf_token %}
+          <h2>Bem-vindo de volta</h2>
 
-        {{ form|crispy }}
+          <p>Entre com sua conta para acessar o FitTrack.</p>
+        </div>
 
-        <button type="submit" class="btn btn-primary btn-block">Entrar</button>
-      </form>
-    </div>
+        {% if messages %}
+          <div class="login-messages">
+            {% for message in messages %}
+              <div class="login-alert {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <form method="post">
+          {% csrf_token %}
+
+          {{ form|crispy }}
+
+          <button class="btn btn-primary btn-login" type="submit">Entrar</button>
+        </form>
+      </div>
+    </section>
   </div>
 {% endblock %}

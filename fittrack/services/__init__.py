@@ -1,4 +1,11 @@
-from .autenticacao_service import *
-from .grupo_service import *
-from .senha_service import *
-from .usuario_service import *
+from .autenticacao_service import AutenticacaoService
+from .grupo_service import GrupoService
+from .senha_service import SenhaService
+from .usuario_service import UsuarioService
+
+__all__ = [
+    "AutenticacaoService",
+    "GrupoService",
+    "SenhaService",
+    "UsuarioService",
+]
