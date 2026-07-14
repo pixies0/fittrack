@@ -65,14 +65,12 @@
     {% endif %}
 
     {# Histórico apenas para alunos #}
-    {% comment %} {% if request.user|can_access:'historico' %}
-      {% if request.user.is_aluno %}
-        <a href="{% url 'historico-detail' request.user.aluno.pk %}" class="sidebar-link {% if 'historico' in request.resolver_match.url_name %}active{% endif %}">
-          <i class="fas fa-history"></i>
-          <span>Histórico</span>
-        </a>
-      {% endif %}
-    {% endif %} {% endcomment %}
+    {% if request.user.is_aluno %}
+      <a href="{% url 'historico-detail' request.user.aluno.pk %}" class="sidebar-link {% if 'historico' in request.resolver_match.url_name %}active{% endif %}">
+        <i class="fas fa-history"></i>
+        <span>Histórico</span>
+      </a>
+    {% endif %}
   </nav>
 
   <div class="sidebar-footer">
