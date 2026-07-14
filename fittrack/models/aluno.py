@@ -1,15 +1,21 @@
 from django.db import models
 
+from .usuario import Usuario
+
+
 class Aluno(models.Model):
-    nome = models.CharField(max_length=120)
-    cpf = models.CharField(max_length=14, unique=True)
-    telefone = models.CharField(max_length=20)
-    email = models.EmailField(unique=True)
+    usuario = models.OneToOneField(
+        Usuario,
+        on_delete=models.CASCADE,
+        related_name="aluno",
+    )
+
     data_nascimento = models.DateField()
+
     ativo = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.nome
+        return self.usuario.nome
 
     def consultar_treinos(self):
         return self.treinos.all()
