@@ -40,9 +40,23 @@ from .views import (
     HistoricoDetailView,
     PerfilView,
     ConfiguracoesView,
+    UsuarioLoginView,
+    UsuarioLogoutView,
 )
 
 urlpatterns = [
+    # AUTENTICAÇÃO
+    path(
+        "login/",
+        UsuarioLoginView.as_view(),
+        name="login",
+    ),
+    path(
+        "logout/",
+        UsuarioLogoutView.as_view(),
+        name="logout",
+    ),
+    # DASHBOARD
     path("", DashboardView.as_view(), name="dashboard"),
     # ALUNO
     path("aluno/", AlunoListView.as_view(), name="aluno-list"),

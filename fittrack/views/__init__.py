@@ -51,6 +51,11 @@ from .avaliacao_fisica import (
 from .historico import HistoricoDetailView
 from .perfil import PerfilView
 from .configuracoes import ConfiguracoesView
+from .autenticacao import (
+    UsuarioLoginView,
+    UsuarioLogoutView,
+)
+from .errors import permission_denied
 
 __all__ = [
     "DashboardView",
@@ -92,4 +97,7 @@ __all__ = [
     "HistoricoDetailView",
     "PerfilView",
     "ConfiguracoesView",
+    "UsuarioLoginView",
+    "UsuarioLogoutView",
+    "permission_denied",
 ]

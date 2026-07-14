@@ -11,3 +11,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("fittrack.urls")),
 ]
+
+handler403 = "fittrack.views.errors.permission_denied"
