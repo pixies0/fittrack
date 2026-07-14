@@ -1,0 +1,37 @@
+asgiref @ file:///C:/Users/task_177184284708708/croot/asgiref_1771842961106/work
+asttokens==3.0.1
+colorama==0.4.6
+comm==0.2.3
+crispy-bootstrap5 @ file:///home/conda/feedstock_root/build_artifacts/bld/rattler-build_crispy-bootstrap5_1777644597/work
+debugpy==1.8.21
+decorator==5.3.1
+Django @ file:///home/conda/feedstock_root/build_artifacts/django_1780528208930/work
+django-crispy-forms @ file:///home/conda/feedstock_root/build_artifacts/django-crispy-forms_1772364290966/work
+djangorestframework @ file:///home/conda/feedstock_root/build_artifacts/djangorestframework_1774433587242/work
+executing==2.2.1
+ipykernel==7.3.0
+ipython==9.14.1
+ipython_pygments_lexers==1.1.1
+jedi==0.20.0
+jupyter_client==8.9.1
+jupyter_core==5.9.1
+matplotlib-inline==0.2.2
+nest-asyncio2==1.7.2
+packaging==26.2
+parso==0.8.7
+pillow @ file:///D:/bld/bld/rattler-build_pillow_1782912129/work
+platformdirs==4.10.0
+prompt_toolkit==3.0.52
+psutil==7.2.2
+psycopg2 @ file:///D:/bld/psycopg2-split_1779947408133/work
+pure_eval==0.2.3
+Pygments==2.20.0
+python-dateutil==2.9.0.post0
+pyzmq==27.1.0
+six==1.17.0
+sqlparse @ file:///C:/Users/task_178117662472581/croot/sqlparse_1781176740160/work
+stack-data==0.6.3
+tornado==6.5.7
+traitlets==5.15.1
+typing_extensions==4.15.0
+wcwidth==0.8.1

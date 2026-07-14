@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Matrícula | FitTrack
+{% endblock %}
+
+{% block page_title %}
+  <h1>Matrículas</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="matricula-page">
+    <div class="content-card">
+      <h2>Matrícula #{{ matricula.id }}</h2>
+
+      <table class="table">
+        <tbody>
+          <tr>
+            <th>Aluno</th>
+
+            <td>{{ matricula.aluno }}</td>
+          </tr>
+
+          <tr>
+            <th>Plano</th>
+
+            <td>{{ matricula.plano }}</td>
+          </tr>
+
+          <tr>
+            <th>Data de Início</th>
+
+            <td>{{ matricula.data_inicio }}</td>
+          </tr>
+
+          <tr>
+            <th>Data de Término</th>
+
+            <td>{{ matricula.data_fim }}</td>
+          </tr>
+
+          <tr>
+            <th>Status</th>
+
+            <td>
+              {% if matricula.ativa %}
+                <span class="badge badge-success">Ativa</span>
+              {% else %}
+                <span class="badge badge-danger">Encerrada</span>
+              {% endif %}
+            </td>
+          </tr>
+
+          <tr>
+            <th>Observações</th>
+
+            <td>{{ matricula.observacoes|default:'-' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

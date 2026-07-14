@@ -1,0 +1,222 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Dashboard - FitTrack
+{% endblock %}
+
+{% block content %}
+  <div class="dashboard">
+    <!-- Header -->
+    <div class="dashboard-header">
+      <div class="dashboard-title">
+        <h1>Dashboard</h1>
+        <p>Visão geral da sua academia</p>
+      </div>
+      <div>
+        <button class="btn btn-primary"><i class="bi bi-plus-lg"></i> Nova Matrícula</button>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="dashboard-stats">
+      <div class="dashboard-card orange">
+        <div class="dashboard-card-info">
+          <span class="dashboard-card-value">128</span>
+          <span class="dashboard-card-label">Alunos Ativos</span>
+        </div>
+        <div class="dashboard-card-icon">
+          <i class="bi bi-people-fill"></i>
+        </div>
+      </div>
+
+      <div class="dashboard-card green">
+        <div class="dashboard-card-info">
+          <span class="dashboard-card-value">12</span>
+          <span class="dashboard-card-label">Professores</span>
+        </div>
+        <div class="dashboard-card-icon">
+          <i class="bi bi-person-badge-fill"></i>
+        </div>
+      </div>
+
+      <div class="dashboard-card blue">
+        <div class="dashboard-card-info">
+          <span class="dashboard-card-value">8</span>
+          <span class="dashboard-card-label">Planos Ativos</span>
+        </div>
+        <div class="dashboard-card-icon">
+          <i class="bi bi-award-fill"></i>
+        </div>
+      </div>
+
+      <div class="dashboard-card red">
+        <div class="dashboard-card-info">
+          <span class="dashboard-card-value">R$ 42.500</span>
+          <span class="dashboard-card-label">Faturamento Mensal</span>
+        </div>
+        <div class="dashboard-card-icon">
+          <i class="bi bi-currency-dollar"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row Principal -->
+    <div class="dashboard-row">
+      <!-- Gráfico -->
+      <div class="chart-card">
+        <div class="chart-header">
+          <h3>Faturamento</h3>
+          <select class="form-control" style="width: auto;">
+            <option>Últimos 30 dias</option>
+            <option>Últimos 3 meses</option>
+            <option>Último ano</option>
+          </select>
+        </div>
+        <div class="chart-container">
+          <canvas id="revenueChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Atividades Recentes -->
+      <div class="side-card">
+        <h3>Atividades Recentes</h3>
+        <div class="activity-list">
+          <div class="activity-item">
+            <div class="activity-icon">
+              <i class="bi bi-person-plus"></i>
+            </div>
+            <div class="activity-content">
+              <div class="activity-title">João Silva - Nova Matrícula</div>
+              <div class="activity-date">Hoje, 14:30</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon">
+              <i class="bi bi-arrow-repeat"></i>
+            </div>
+            <div class="activity-content">
+              <div class="activity-title">Maria Santos - Renovação</div>
+              <div class="activity-date">Hoje, 11:15</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon">
+              <i class="bi bi-person-check"></i>
+            </div>
+            <div class="activity-content">
+              <div class="activity-title">Carlos Oliveira - Avaliação</div>
+              <div class="activity-date">Ontem, 16:45</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Últimas Matrículas -->
+    <div class="table-card">
+      <div class="table-header">
+        <h3 class="table-title">Últimas Matrículas</h3>
+        <a href="#" class="btn btn-outline btn-sm">Ver todas</a>
+      </div>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Aluno</th>
+              <th>Plano</th>
+              <th>Data</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="table-user">
+                  <img src="{% static 'img/avatar-default.png' %}" alt="Avatar" class="avatar avatar-sm" />
+                  <div>
+                    <div class="table-user-name">João Silva</div>
+                    <div class="table-user-description">joao@email.com</div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <span class="badge badge-info">Mensal</span>
+              </td>
+              <td>13/07/2026</td>
+              <td>
+                <span class="badge badge-success">Ativo</span>
+              </td>
+              <td>
+                <div class="table-actions">
+                  <a href="#" class="table-action view"><i class="bi bi-eye"></i></a>
+                  <a href="#" class="table-action edit"><i class="bi bi-pencil"></i></a>
+                  <a href="#" class="table-action delete"><i class="bi bi-trash"></i></a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="table-user">
+                  <img src="{% static 'img/avatar-default.png' %}" alt="Avatar" class="avatar avatar-sm" />
+                  <div>
+                    <div class="table-user-name">Maria Santos</div>
+                    <div class="table-user-description">maria@email.com</div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <span class="badge badge-success">Trimestral</span>
+              </td>
+              <td>12/07/2026</td>
+              <td>
+                <span class="badge badge-success">Ativo</span>
+              </td>
+              <td>
+                <div class="table-actions">
+                  <a href="#" class="table-action view"><i class="bi bi-eye"></i></a>
+                  <a href="#" class="table-action edit"><i class="bi bi-pencil"></i></a>
+                  <a href="#" class="table-action delete"><i class="bi bi-trash"></i></a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block extra_js %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const ctx = document.getElementById('revenueChart').getContext('2d')
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+          datasets: [
+            {
+              label: 'Faturamento',
+              data: [25000, 28000, 32000, 35000, 38000, 42500],
+              borderColor: '#f77f00',
+              backgroundColor: 'rgba(247, 127, 0, 0.1)',
+              tension: 0.4,
+              fill: true
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            }
+          }
+        }
+      })
+    })
+  </script>
+{% endblock %}

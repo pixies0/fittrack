@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Plano | FitTrack
+{% endblock %}
+
+{% block page_title %}
+  <h1>Planos</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="plano-page">
+    <div class="content-card">
+      <h2>{{ plano.nome }}</h2>
+
+      <table class="table">
+        <tbody>
+          <tr>
+            <th>Valor</th>
+
+            <td>R$ {{ plano.valor }}</td>
+          </tr>
+
+          <tr>
+            <th>Duração</th>
+
+            <td>{{ plano.duracao }} dias</td>
+          </tr>
+
+          <tr>
+            <th>Descrição</th>
+
+            <td>{{ plano.descricao }}</td>
+          </tr>
+
+          <tr>
+            <th>Status</th>
+
+            <td>
+              {% if plano.ativo %}
+                <span class="badge badge-success">Ativo</span>
+              {% else %}
+                <span class="badge badge-danger">Inativo</span>
+              {% endif %}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

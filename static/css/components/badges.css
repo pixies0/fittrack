@@ -1,0 +1,53 @@
+/*==================================================
+                BADGES
+==================================================*/
+
+.badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 5px 12px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+/*==================================================
+                STATUS
+==================================================*/
+
+.badge-success {
+  background: var(--success-bg);
+
+  color: var(--secondary);
+}
+
+.badge-warning {
+  background: var(--warning-bg);
+
+  color: #d48806;
+}
+
+.badge-danger {
+  background: var(--danger-bg);
+
+  color: var(--danger);
+}
+
+.badge-info {
+  background: var(--info-bg);
+
+  color: var(--info);
+}
+
+.badge-dark {
+  background: var(--primary);
+
+  color: white;
+}

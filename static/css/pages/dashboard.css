@@ -1,0 +1,309 @@
+/*==================================================
+                    DASHBOARD
+==================================================*/
+
+.dashboard {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 28px;
+}
+
+.dashboard-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+.dashboard-title h1 {
+  margin-bottom: 6px;
+}
+
+.dashboard-title p {
+  color: var(--text-light);
+}
+
+.dashboard-stats {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 24px;
+}
+
+.dashboard-card {
+  background: var(--surface);
+
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow-sm);
+
+  padding: 24px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  transition: 0.25s;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow: var(--shadow-md);
+}
+
+.dashboard-card-info {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.dashboard-card-value {
+  font-family: var(--font-title);
+
+  font-size: 38px;
+
+  color: var(--primary);
+}
+
+.dashboard-card-label {
+  color: var(--text-light);
+
+  font-size: 14px;
+}
+
+.dashboard-card-icon {
+  width: 60px;
+
+  height: 60px;
+
+  border-radius: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 26px;
+
+  color: white;
+}
+
+.dashboard-card.orange .dashboard-card-icon {
+  background: var(--accent);
+}
+
+.dashboard-card.green .dashboard-card-icon {
+  background: var(--secondary);
+}
+
+.dashboard-card.blue .dashboard-card-icon {
+  background: var(--info);
+}
+
+.dashboard-card.red .dashboard-card-icon {
+  background: var(--danger);
+}
+
+.dashboard-row {
+  display: grid;
+
+  grid-template-columns: 2fr 1fr;
+
+  gap: 24px;
+}
+
+.chart-card {
+  background: white;
+
+  border-radius: var(--radius-md);
+
+  padding: 24px;
+
+  box-shadow: var(--shadow-sm);
+}
+
+.chart-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 24px;
+}
+
+.chart-header h3 {
+  font-size: 22px;
+}
+
+.chart-container {
+  position: relative;
+
+  height: 340px;
+}
+
+.side-card {
+  background: white;
+
+  border-radius: var(--radius-md);
+
+  padding: 24px;
+
+  box-shadow: var(--shadow-sm);
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+.activity-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.activity-item {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 14px;
+}
+
+.activity-icon {
+  width: 42px;
+
+  height: 42px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: var(--background);
+
+  color: var(--accent);
+
+  flex-shrink: 0;
+}
+
+.activity-content {
+  flex: 1;
+}
+
+.activity-title {
+  font-weight: 600;
+}
+
+.activity-date {
+  font-size: 13px;
+
+  color: var(--text-light);
+}
+
+.calendar-card {
+  background: white;
+
+  border-radius: var(--radius-md);
+
+  padding: 24px;
+
+  box-shadow: var(--shadow-sm);
+}
+
+.expiration-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+.expiration-item {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 14px;
+
+  border-radius: 10px;
+
+  background: #fafbfc;
+}
+
+.mini-card {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  background: white;
+
+  padding: 18px;
+
+  border-radius: 12px;
+
+  box-shadow: var(--shadow-sm);
+}
+
+.trend {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+.trend.up {
+  color: var(--secondary);
+}
+
+.trend.down {
+  color: var(--danger);
+}
+
+@media (max-width: 1200px) {
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+}

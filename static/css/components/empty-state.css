@@ -1,0 +1,23 @@
+.empty-state {
+  padding: 70px 20px;
+
+  text-align: center;
+}
+
+.empty-state i {
+  font-size: 60px;
+
+  color: #ced4da;
+}
+
+.empty-title {
+  margin-top: 18px;
+
+  font-size: 22px;
+}
+
+.empty-description {
+  color: var(--text-light);
+
+  margin: 12px 0 24px;
+}

@@ -1,0 +1,55 @@
+/*==================================================
+                    TREINOS
+==================================================*/
+
+.treino-page {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 24px;
+}
+
+.exercise-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+.exercise-card {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 18px;
+
+  border-radius: 12px;
+
+  border: 1px solid var(--border);
+}
+
+.exercise-info {
+  display: flex;
+
+  gap: 18px;
+
+  align-items: center;
+}
+
+.exercise-muscle {
+  font-size: 13px;
+
+  color: var(--accent);
+
+  font-weight: 600;
+}
+
+.exercise-series {
+  display: flex;
+
+  gap: 12px;
+}

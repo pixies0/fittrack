@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+  Configurações
+{% endblock %}
+
+{% block page_title %}
+  <h1>Configurações</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="settings-page">
+    <div class="page-header">
+      <div>
+        <h2>Configurações do Sistema</h2>
+
+        <p>Atualize suas preferências.</p>
+      </div>
+    </div>
+
+    <div class="content-card">
+      <form method="post">
+        {% csrf_token %}
+
+        {{ form|crispy }}
+
+        <div class="form-footer">
+          <button class="btn btn-primary" type="submit">Salvar Alterações</button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,51 @@
+/*==================================================
+                ESTRUTURA PRINCIPAL
+==================================================*/
+
+.app {
+  display: flex;
+
+  min-height: 100vh;
+
+  background: var(--background);
+}
+
+/*==================================================
+                ÁREA PRINCIPAL
+==================================================*/
+
+.app-main {
+  flex: 1;
+
+  margin-left: var(--sidebar-width);
+
+  display: flex;
+
+  flex-direction: column;
+
+  min-height: 100vh;
+}
+
+/*==================================================
+                CONTEÚDO
+==================================================*/
+
+.app-content {
+  flex: 1;
+
+  padding: 32px;
+}
+
+/*==================================================
+                ÁREA BRANCA DAS TELAS
+==================================================*/
+
+.page-wrapper {
+  background: var(--surface);
+
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow-sm);
+
+  padding: 24px;
+}

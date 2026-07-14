@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+  Professor | FitTrack
+{% endblock %}
+
+{% block page_title %}
+  <h1>Professores</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="professor-page">
+    <div class="page-header">
+      <div>
+        <h2>
+          {% if object %}
+            Editar Professor
+          {% else %}
+            Novo Professor
+          {% endif %}
+        </h2>
+      </div>
+    </div>
+
+    <form method="post" enctype="multipart/form-data" class="form">
+      {% csrf_token %}
+
+      <div class="form-section">{{ form|crispy }}</div>
+
+      <div class="form-footer">
+        <button type="button" class="btn btn-outline">Cancelar</button>
+
+        <button type="submit" class="btn btn-primary">
+          <i class="bi bi-check-lg"></i>
+
+          Salvar
+        </button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

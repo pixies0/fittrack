@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Excluir Exercício
+{% endblock %}
+
+{% block page_title %}
+  <h1>Exercícios</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="content-card">
+    <form method="post">
+      {% csrf_token %}
+
+      <h2>Confirmar Exclusão</h2>
+
+      <p>
+        Deseja realmente excluir o exercício
+
+        <strong>{{ exercicio.nome }}</strong>?
+      </p>
+
+      <div class="form-footer">
+        <button type="button" class="btn btn-outline">Cancelar</button>
+
+        <button type="submit" class="btn btn-primary">
+          <i class="bi bi-trash"></i>
+
+          Excluir
+        </button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

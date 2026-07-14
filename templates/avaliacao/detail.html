@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Avaliação Física | FitTrack
+{% endblock %}
+
+{% block page_title %}
+  <h1>Avaliação Física</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="avaliacao-page">
+    <div class="content-card">
+      <h2>{{ avaliacao.aluno }}</h2>
+
+      <table class="table">
+        <tbody>
+          <tr>
+            <th>Professor</th>
+            <td>{{ avaliacao.professor }}</td>
+          </tr>
+
+          <tr>
+            <th>Data</th>
+            <td>{{ avaliacao.data_avaliacao }}</td>
+          </tr>
+
+          <tr>
+            <th>Peso</th>
+            <td>{{ avaliacao.peso }} kg</td>
+          </tr>
+
+          <tr>
+            <th>Altura</th>
+            <td>{{ avaliacao.altura }} m</td>
+          </tr>
+
+          <tr>
+            <th>IMC</th>
+            <td>{{ avaliacao.imc }}</td>
+          </tr>
+
+          <tr>
+            <th>Percentual de Gordura</th>
+            <td>{{ avaliacao.percentual_gordura }} %</td>
+          </tr>
+
+          <tr>
+            <th>Massa Magra</th>
+            <td>{{ avaliacao.massa_magra }} kg</td>
+          </tr>
+
+          <tr>
+            <th>Observações</th>
+            <td>{{ avaliacao.observacoes|default:'Nenhuma observação registrada.' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-card">
+      <h3>Medidas Corporais</h3>
+
+      <table class="table">
+        <tbody>
+          <tr>
+            <th>Peitoral</th>
+            <td>{{ avaliacao.peitoral }} cm</td>
+          </tr>
+
+          <tr>
+            <th>Cintura</th>
+            <td>{{ avaliacao.cintura }} cm</td>
+          </tr>
+
+          <tr>
+            <th>Quadril</th>
+            <td>{{ avaliacao.quadril }} cm</td>
+          </tr>
+
+          <tr>
+            <th>Braço Direito</th>
+            <td>{{ avaliacao.braco_direito }} cm</td>
+          </tr>
+
+          <tr>
+            <th>Braço Esquerdo</th>
+            <td>{{ avaliacao.braco_esquerdo }} cm</td>
+          </tr>
+
+          <tr>
+            <th>Coxa Direita</th>
+            <td>{{ avaliacao.coxa_direita }} cm</td>
+          </tr>
+
+          <tr>
+            <th>Coxa Esquerda</th>
+            <td>{{ avaliacao.coxa_esquerda }} cm</td>
+          </tr>
+
+          <tr>
+            <th>Panturrilha Direita</th>
+            <td>{{ avaliacao.panturrilha_direita }} cm</td>
+          </tr>
+
+          <tr>
+            <th>Panturrilha Esquerda</th>
+            <td>{{ avaliacao.panturrilha_esquerda }} cm</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

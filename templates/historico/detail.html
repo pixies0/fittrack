@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Histórico do Aluno
+{% endblock %}
+
+{% block page_title %}
+  <h1>Histórico</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="historico-page">
+    <div class="page-header">
+      <div>
+        <h2>{{ aluno.nome }}</h2>
+
+        <p>Evolução física e histórico de atividades.</p>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span>Treinos</span>
+
+        <h2>{{ total_treinos }}</h2>
+      </div>
+
+      <div class="stat-card">
+        <span>Avaliações</span>
+
+        <h2>{{ total_avaliacoes }}</h2>
+      </div>
+
+      <div class="stat-card">
+        <span>Tempo de Academia</span>
+
+        <h2>{{ tempo_academia }}</h2>
+      </div>
+    </div>
+
+    <div class="dashboard-grid">
+      <div class="content-card">
+        <h3>Evolução do Peso</h3>
+
+        <canvas id="pesoChart"></canvas>
+      </div>
+
+      <div class="content-card">
+        <h3>Evolução do IMC</h3>
+
+        <canvas id="imcChart"></canvas>
+      </div>
+    </div>
+
+    <div class="content-card">
+      <h3>Últimas Avaliações</h3>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Data</th>
+
+            <th>Peso</th>
+
+            <th>IMC</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for avaliacao in avaliacoes %}
+            <tr>
+              <td>{{ avaliacao.data_avaliacao }}</td>
+
+              <td>{{ avaliacao.peso }}</td>
+
+              <td>{{ avaliacao.imc }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+.grid {
+  display: grid;
+
+  gap: 24px;
+}
+
+/* KPIs */
+
+.grid-kpi {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+/* Dashboard */
+
+.grid-dashboard {
+  grid-template-columns:
+    2fr
+    1fr;
+}
+
+/* CRUD */
+
+.grid-form {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Cards */
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-5 {
+  grid-template-columns: repeat(5, 1fr);
+}

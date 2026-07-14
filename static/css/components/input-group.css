@@ -1,0 +1,19 @@
+.input-group {
+  position: relative;
+}
+
+.input-group i {
+  position: absolute;
+
+  left: 16px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: var(--text-light);
+}
+
+.input-group .form-control {
+  padding-left: 44px;
+}

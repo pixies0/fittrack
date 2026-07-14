@@ -1,0 +1,57 @@
+/*==================================================
+                AVALIAÇÃO FÍSICA
+==================================================*/
+
+.avaliacao {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 30px;
+}
+
+.avaliacao-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 24px;
+}
+
+.medida-card {
+  background: white;
+
+  padding: 20px;
+
+  border-radius: 12px;
+
+  box-shadow: var(--shadow-sm);
+}
+
+.medida-valor {
+  font-size: 38px;
+
+  font-family: var(--font-title);
+
+  color: var(--accent);
+}
+
+.imc-card {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .avaliacao-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .avaliacao-grid {
+    grid-template-columns: 1fr;
+  }
+}

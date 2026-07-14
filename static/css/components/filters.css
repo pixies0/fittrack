@@ -1,0 +1,13 @@
+.filters {
+  display: flex;
+
+  gap: 14px;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+}
+
+.filter {
+  min-width: 180px;
+}

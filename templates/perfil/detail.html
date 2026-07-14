@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  Meu Perfil
+{% endblock %}
+
+{% block page_title %}
+  <h1>Meu Perfil</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="profile-page">
+    <div class="profile-cover"></div>
+
+    <div class="profile-summary">
+      <div class="profile-user">
+        <img src="{% static 'img/avatar-default.png' %}" class="profile-avatar" />
+
+        <div>
+          <h2>{{ user.get_full_name }}</h2>
+
+          <p>{{ user.email }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-grid">
+      <div class="profile-card">
+        <h3>Informações</h3>
+
+        <table class="table">
+          <tr>
+            <th>Usuário</th>
+
+            <td>{{ user.username }}</td>
+          </tr>
+
+          <tr>
+            <th>Nome</th>
+
+            <td>{{ user.get_full_name }}</td>
+          </tr>
+
+          <tr>
+            <th>Email</th>
+
+            <td>{{ user.email }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}

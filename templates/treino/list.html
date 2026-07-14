@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Treinos | FitTrack
+{% endblock %}
+
+{% block page_title %}
+  <h1>Treinos</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="treino-page">
+    <div class="page-header">
+      <div>
+        <h2>Gerenciamento de Treinos</h2>
+
+        <p>Monte e acompanhe os treinos cadastrados.</p>
+      </div>
+
+      <a href="#" class="btn btn-primary">
+        <i class="bi bi-plus-lg"></i>
+
+        Novo Treino
+      </a>
+    </div>
+
+    <div class="table-card">
+      <div class="table-header">
+        {% include 'includes/search.html' %}
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nome</th>
+
+              <th>Aluno</th>
+
+              <th>Professor</th>
+
+              <th>Exercícios</th>
+
+              <th>Status</th>
+
+              <th width="150">Ações</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {% for treino in treinos %}
+              <tr>
+                <td>{{ treino.nome }}</td>
+
+                <td>{{ treino.aluno }}</td>
+
+                <td>{{ treino.professor }}</td>
+
+                <td>{{ treino.exercicios.count }}</td>
+
+                <td>
+                  {% if treino.ativo %}
+                    <span class="badge badge-success">Ativo</span>
+                  {% else %}
+                    <span class="badge badge-danger">Arquivado</span>
+                  {% endif %}
+                </td>
+
+                <td>
+                  <div class="table-actions">
+                    <a href="#" class="table-action view"><i class="bi bi-eye"></i></a>
+
+                    <a href="#" class="table-action edit"><i class="bi bi-pencil"></i></a>
+
+                    <a href="#" class="table-action delete"><i class="bi bi-trash"></i></a>
+                  </div>
+                </td>
+              </tr>
+            {% empty %}
+              <tr>
+                <td colspan="6">
+                  {% include 'includes/empty_state.html' %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      {% include 'includes/pagination.html' %}
+    </div>
+  </div>
+{% endblock %}

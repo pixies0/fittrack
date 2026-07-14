@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Exercício | FitTrack
+{% endblock %}
+
+{% block page_title %}
+  <h1>Exercícios</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="exercicio-page">
+    <div class="exercicio-detail">
+      <div class="exercicio-gallery">
+        {% if exercicio.imagem %}
+          <img src="{{ exercicio.imagem.url }}" class="radius shadow" />
+        {% else %}
+          <img src="{% static 'img/exercicio-default.png' %}" class="radius shadow" />
+        {% endif %}
+      </div>
+
+      <div class="exercicio-content">
+        <h2>{{ exercicio.nome }}</h2>
+
+        <p class="exercicio-description">{{ exercicio.descricao }}</p>
+
+        <div class="exercicio-meta">
+          <span class="badge badge-info">{{ exercicio.grupo_muscular }}</span>
+
+          <span class="badge badge-warning">{{ exercicio.equipamento }}</span>
+
+          <span class="badge badge-success">{{ exercicio.get_dificuldade_display }}</span>
+        </div>
+
+        <div class="content-card">
+          <h3>Execução</h3>
+
+          <p>{{ exercicio.execucao }}</p>
+        </div>
+
+        <div class="content-card">
+          <h3>Observações</h3>
+
+          <p>{{ exercicio.observacoes|default:'Nenhuma observação cadastrada.' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

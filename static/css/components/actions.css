@@ -1,0 +1,41 @@
+.action-group {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.action-btn {
+  width: 32px;
+
+  height: 32px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 8px;
+
+  color: var(--text-light);
+
+  transition: var(--transition);
+}
+
+.action-btn:hover {
+  background: var(--background);
+}
+
+.action-btn.edit:hover {
+  color: var(--info);
+}
+
+.action-btn.view:hover {
+  color: var(--secondary);
+}
+
+.action-btn.delete:hover {
+  color: var(--danger);
+}

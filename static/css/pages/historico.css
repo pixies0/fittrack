@@ -1,0 +1,400 @@
+/*==================================================================
+    HISTÓRICO DO ALUNO
+    ---------------------------------------------------------------
+    Página responsável por apresentar:
+
+    • Resumo do aluno
+    • Evolução física
+    • Avaliações
+    • Frequência
+    • Histórico de treinos
+    • Timeline de atividades
+==================================================================*/
+
+/*==================================================================
+    CONTAINER
+==================================================================*/
+
+.historico-page {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 32px;
+}
+
+/*==================================================================
+    CABEÇALHO
+==================================================================*/
+
+.historico-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 24px;
+
+  flex-wrap: wrap;
+}
+
+.historico-title {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.historico-title p {
+  color: var(--text-light);
+}
+
+/*==================================================================
+    PERFIL DO ALUNO
+==================================================================*/
+
+.historico-profile {
+  display: flex;
+
+  align-items: center;
+
+  gap: 28px;
+
+  background: var(--surface);
+
+  border-radius: var(--radius-md);
+
+  padding: 28px;
+
+  box-shadow: var(--shadow-sm);
+}
+
+.historico-avatar {
+  width: 110px;
+
+  height: 110px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+}
+
+.historico-info {
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.historico-info h2 {
+  margin: 0;
+}
+
+.historico-info span {
+  color: var(--text-light);
+}
+
+.historico-actions {
+  display: flex;
+
+  gap: 12px;
+}
+
+/*==================================================================
+    KPIs
+==================================================================*/
+
+.historico-kpis {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 24px;
+}
+
+/*==================================================================
+    GRÁFICOS
+==================================================================*/
+
+.historico-charts {
+  display: grid;
+
+  grid-template-columns: 2fr 1fr;
+
+  gap: 24px;
+}
+
+.chart-large {
+  min-height: 380px;
+}
+
+.chart-small {
+  min-height: 380px;
+}
+
+.chart-body {
+  position: relative;
+
+  height: 320px;
+}
+
+/*==================================================================
+    EVOLUÇÃO CORPORAL
+==================================================================*/
+
+.body-progress {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 24px;
+}
+
+.progress-item {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 18px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  transition: var(--transition);
+}
+
+.progress-item:hover {
+  background: #fafbfd;
+}
+
+.progress-title {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.progress-title small {
+  color: var(--text-light);
+}
+
+.progress-value {
+  font-size: 28px;
+
+  font-family: var(--font-title);
+
+  color: var(--accent);
+}
+
+/*==================================================================
+    TIMELINE
+==================================================================*/
+
+.timeline {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.timeline-item {
+  display: flex;
+
+  gap: 18px;
+}
+
+.timeline-marker {
+  width: 18px;
+
+  display: flex;
+
+  justify-content: center;
+
+  position: relative;
+}
+
+.timeline-marker::after {
+  content: "";
+
+  position: absolute;
+
+  top: 22px;
+
+  width: 2px;
+
+  bottom: -22px;
+
+  background: var(--border);
+}
+
+.timeline-item:last-child .timeline-marker::after {
+  display: none;
+}
+
+.timeline-dot {
+  width: 16px;
+
+  height: 16px;
+
+  border-radius: 50%;
+
+  background: var(--accent);
+
+  margin-top: 4px;
+}
+
+.timeline-content {
+  flex: 1;
+
+  padding-bottom: 12px;
+}
+
+.timeline-content h4 {
+  margin-bottom: 4px;
+}
+
+.timeline-date {
+  font-size: 13px;
+
+  color: var(--text-light);
+
+  margin-bottom: 8px;
+}
+
+/*==================================================================
+    HISTÓRICO DE TREINOS
+==================================================================*/
+
+.training-history {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+.training-item {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 18px 22px;
+
+  border-radius: 12px;
+
+  border: 1px solid var(--border);
+
+  transition: var(--transition);
+}
+
+.training-item:hover {
+  background: #fafbfd;
+}
+
+.training-info {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.training-info small {
+  color: var(--text-light);
+}
+
+/*==================================================================
+    OBSERVAÇÕES
+==================================================================*/
+
+.notes-card {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.notes-content {
+  line-height: 1.8;
+
+  color: var(--text);
+}
+
+/*==================================================================
+    GRID AUXILIAR
+==================================================================*/
+
+.historico-grid {
+  display: grid;
+
+  grid-template-columns: 2fr 1fr;
+
+  gap: 24px;
+}
+
+/*==================================================================
+    RESPONSIVIDADE
+==================================================================*/
+
+@media (max-width: 1200px) {
+  .historico-kpis {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .historico-charts {
+    grid-template-columns: 1fr;
+  }
+
+  .historico-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .body-progress {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .historico-profile {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  .historico-actions {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .historico-kpis {
+    grid-template-columns: 1fr;
+  }
+
+  .training-item {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 16px;
+  }
+
+  .historico-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+}

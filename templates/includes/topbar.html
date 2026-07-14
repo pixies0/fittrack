@@ -1,0 +1,23 @@
+{% load static %}
+<header class="topbar">
+  <div class="topbar-left">
+    <button class="topbar-menu"><i class="bi bi-list"></i></button>
+  </div>
+
+  <div class="topbar-right">
+    <button class="topbar-icon"><i class="bi bi-search"></i></button>
+
+    <button class="topbar-icon"><i class="bi bi-bell"></i></button>
+
+    <button class="topbar-icon"><i class="bi bi-moon"></i></button>
+
+    <div class="topbar-user">
+      <img src="{% static 'img/avatar-default.png' %}" alt="Usuário" />
+
+      <div class="user-info">
+        <strong>{{ user.get_full_name|default:user.username }}</strong>
+        <small>Administrador</small>
+      </div>
+    </div>
+  </div>
+</header>

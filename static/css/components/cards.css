@@ -1,0 +1,49 @@
+/*==================================================
+                    CARD
+==================================================*/
+
+.card {
+  background: var(--surface);
+
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow-sm);
+
+  padding: 24px;
+}
+
+.card-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 18px;
+}
+
+.card-title {
+  font-size: 22px;
+}
+
+.card-subtitle {
+  color: var(--text-light);
+
+  font-size: 14px;
+}
+
+.card-body {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.card-footer {
+  margin-top: 24px;
+
+  border-top: 1px solid var(--border);
+
+  padding-top: 18px;
+}

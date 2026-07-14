@@ -1,0 +1,23 @@
+.professor-profile {
+  display: flex;
+
+  align-items: center;
+
+  gap: 24px;
+}
+
+.professor-tags {
+  display: flex;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+}
+
+.professor-schedule {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}

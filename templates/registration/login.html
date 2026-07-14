@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+  Login | FitTrack
+{% endblock %}
+
+{% block content %}
+  <div class="login-page">
+    <div class="login-card">
+      <div class="login-logo">
+        <img src="{% static 'img/logo.svg' %}" alt="FitTrack" />
+      </div>
+
+      <h1>FitTrack</h1>
+
+      <p>Faça login para acessar o sistema.</p>
+
+      <form method="post">
+        {% csrf_token %}
+
+        {{ form|crispy }}
+
+        <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

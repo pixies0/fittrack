@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Exercícios | FitTrack
+{% endblock %}
+
+{% block page_title %}
+  <h1>Exercícios</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="exercicio-page">
+    <div class="page-header">
+      <div>
+        <h2>Gerenciamento de Exercícios</h2>
+
+        <p>Cadastre e organize os exercícios utilizados nos treinos.</p>
+      </div>
+
+      <a href="#" class="btn btn-primary">
+        <i class="bi bi-plus-lg"></i>
+
+        Novo Exercício
+      </a>
+    </div>
+
+    <div class="table-card">
+      <div class="table-header">
+        {% include 'includes/search.html' %}
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nome</th>
+
+              <th>Grupo Muscular</th>
+
+              <th>Equipamento</th>
+
+              <th>Dificuldade</th>
+
+              <th width="150">Ações</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {% for exercicio in exercicios %}
+              <tr>
+                <td>{{ exercicio.nome }}</td>
+
+                <td>{{ exercicio.grupo_muscular }}</td>
+
+                <td>{{ exercicio.equipamento }}</td>
+
+                <td>{{ exercicio.get_dificuldade_display }}</td>
+
+                <td>
+                  <div class="table-actions">
+                    <a href="#" class="table-action view"><i class="bi bi-eye"></i></a>
+
+                    <a href="#" class="table-action edit"><i class="bi bi-pencil"></i></a>
+
+                    <a href="#" class="table-action delete"><i class="bi bi-trash"></i></a>
+                  </div>
+                </td>
+              </tr>
+            {% empty %}
+              <tr>
+                <td colspan="5">
+                  {% include 'includes/empty_state.html' %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      {% include 'includes/pagination.html' %}
+    </div>
+  </div>
+{% endblock %}

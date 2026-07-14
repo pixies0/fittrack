@@ -1,0 +1,125 @@
+/*==================================================
+                    BOTÕES
+==================================================*/
+
+.btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 12px 22px;
+
+  border-radius: var(--radius-sm);
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  transition: var(--transition);
+
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+/*==================================================
+                PRIMÁRIO
+==================================================*/
+
+.btn-primary {
+  background: var(--accent);
+
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+
+  transform: translateY(-2px);
+}
+
+/*==================================================
+                SECUNDÁRIO
+==================================================*/
+
+.btn-secondary {
+  background: var(--primary);
+
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: var(--primary-light);
+}
+
+/*==================================================
+                OUTLINE
+==================================================*/
+
+.btn-outline {
+  background: #fff;
+
+  border: 1px solid var(--border);
+
+  color: var(--text);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+
+  color: var(--accent);
+}
+
+/*==================================================
+                SUCCESS
+==================================================*/
+
+.btn-success {
+  background: var(--secondary);
+
+  color: white;
+}
+
+.btn-success:hover {
+  background: var(--secondary-hover);
+}
+
+/*==================================================
+                ÍCONE
+==================================================*/
+
+.btn-icon {
+  width: 40px;
+
+  height: 40px;
+
+  border-radius: 50%;
+
+  padding: 0;
+}
+
+/*==================================================
+                TAMANHOS
+==================================================*/
+
+.btn-sm {
+  padding: 8px 14px;
+
+  font-size: 13px;
+}
+
+.btn-lg {
+  padding: 16px 30px;
+
+  font-size: 15px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}

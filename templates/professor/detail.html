@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Professor | FitTrack
+{% endblock %}
+
+{% block page_title %}
+  <h1>Professores</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="professor-page">
+    <div class="professor-profile content-card">
+      {% if professor.foto %}
+        <img src="{{ professor.foto.url }}" class="aluno-avatar" />
+      {% else %}
+        <img src="{% static 'img/avatar-default.png' %}" class="aluno-avatar" />
+      {% endif %}
+
+      <div class="aluno-info">
+        <h2>{{ professor.nome }}</h2>
+
+        <span>{{ professor.email }}</span>
+
+        <span>{{ professor.telefone }}</span>
+
+        <span>{{ professor.get_turno_display }}</span>
+
+        {% if professor.ativo %}
+          <span class="badge badge-success">Ativo</span>
+        {% else %}
+          <span class="badge badge-danger">Inativo</span>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="content-card">
+      <h3>Informações</h3>
+
+      <table class="table">
+        <tbody>
+          <tr>
+            <th>CREF</th>
+
+            <td>{{ professor.cref }}</td>
+          </tr>
+
+          <tr>
+            <th>Telefone</th>
+
+            <td>{{ professor.telefone }}</td>
+          </tr>
+
+          <tr>
+            <th>Email</th>
+
+            <td>{{ professor.email }}</td>
+          </tr>
+
+          <tr>
+            <th>Turno</th>
+
+            <td>{{ professor.get_turno_display }}</td>
+          </tr>
+
+          <tr>
+            <th>Especialidade</th>
+
+            <td>{{ professor.especialidade }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

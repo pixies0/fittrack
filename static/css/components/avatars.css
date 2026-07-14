@@ -1,0 +1,59 @@
+/*==================================================
+                AVATAR
+==================================================*/
+
+.avatar {
+  width: 42px;
+
+  height: 42px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+}
+
+.avatar-sm {
+  width: 32px;
+
+  height: 32px;
+}
+
+.avatar-lg {
+  width: 64px;
+
+  height: 64px;
+}
+
+.avatar-xl {
+  width: 96px;
+
+  height: 96px;
+}
+
+/*==================================================
+                COM TEXTO
+==================================================*/
+
+.avatar-group {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.avatar-info {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.avatar-name {
+  font-weight: 600;
+}
+
+.avatar-description {
+  font-size: 13px;
+
+  color: var(--text-light);
+}

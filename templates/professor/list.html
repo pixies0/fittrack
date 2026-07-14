@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Professores | FitTrack
+{% endblock %}
+
+{% block page_title %}
+  <h1>Professores</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="professor-page">
+    <div class="page-header">
+      <div>
+        <h2>Gerenciamento de Professores</h2>
+
+        <p>Cadastre e gerencie os professores da academia.</p>
+      </div>
+
+      <a href="#" class="btn btn-primary">
+        <i class="bi bi-plus-lg"></i>
+
+        Novo Professor
+      </a>
+    </div>
+
+    <div class="table-card">
+      <div class="table-header">
+        <div class="filters">
+          {% include 'includes/search.html' %}
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Professor</th>
+
+              <th>CREF</th>
+
+              <th>Telefone</th>
+
+              <th>Turno</th>
+
+              <th>Status</th>
+
+              <th width="150">Ações</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {% for professor in professores %}
+              <tr>
+                <td>
+                  <div class="table-user">
+                    {% if professor.foto %}
+                      <img src="{{ professor.foto.url }}" class="avatar avatar-sm" />
+                    {% else %}
+                      <img src="{% static 'img/avatar-default.png' %}" class="avatar avatar-sm" />
+                    {% endif %}
+
+                    <div>
+                      <div class="table-user-name">{{ professor.nome }}</div>
+
+                      <div class="table-user-description">{{ professor.email }}</div>
+                    </div>
+                  </div>
+                </td>
+
+                <td>{{ professor.cref }}</td>
+
+                <td>{{ professor.telefone }}</td>
+
+                <td>{{ professor.get_turno_display }}</td>
+
+                <td>
+                  {% if professor.ativo %}
+                    <span class="badge badge-success">Ativo</span>
+                  {% else %}
+                    <span class="badge badge-danger">Inativo</span>
+                  {% endif %}
+                </td>
+
+                <td>
+                  <div class="table-actions">
+                    <a href="#" class="table-action view"><i class="bi bi-eye"></i></a>
+
+                    <a href="#" class="table-action edit"><i class="bi bi-pencil"></i></a>
+
+                    <a href="#" class="table-action delete"><i class="bi bi-trash"></i></a>
+                  </div>
+                </td>
+              </tr>
+            {% empty %}
+              <tr>
+                <td colspan="6">
+                  {% include 'includes/empty_state.html' %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      {% include 'includes/pagination.html' %}
+    </div>
+  </div>
+{% endblock %}

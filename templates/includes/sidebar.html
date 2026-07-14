@@ -1,0 +1,86 @@
+{% load static %}
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <a href="{% url 'dashboard' %}"><img src="{% static 'img/logo.svg' %}" alt="FitTrack" /></a>
+    <h2>FiTTrack</h2>
+  </div>
+
+  <nav class="sidebar-nav">
+    <ul>
+      <li>
+        <a href="{% url 'dashboard' %}" class="{% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">
+          <i class="bi bi-grid-fill"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'aluno-list' %}" class="{% if request.resolver_match.url_name == 'aluno-list' %}active{% endif %}">
+          <i class="bi bi-people-fill"></i>
+          <span>Alunos</span>
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'professor-list' %}" class="{% if request.resolver_match.url_name == 'professor-list' %}active{% endif %}">
+          <i class="bi bi-person-badge-fill"></i>
+          <span>Professores</span>
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'plano-list' %}" class="{% if request.resolver_match.url_name == 'plano-list' %}active{% endif %}">
+          <i class="bi bi-award-fill"></i>
+          <span>Planos</span>
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'matricula-list' %}" class="{% if request.resolver_match.url_name == 'matricula-list' %}active{% endif %}">
+          <i class="bi bi-journal-check"></i>
+          <span>Matrículas</span>
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'treino-list' %}" class="{% if request.resolver_match.url_name == 'treino-list' %}active{% endif %}">
+          <i class="bi bi-clipboard2-pulse-fill"></i>
+          <span>Treinos</span>
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'exercicio-list' %}" class="{% if request.resolver_match.url_name == 'exercicio-list' %}active{% endif %}">
+          <i class="bi bi-universal-access-circle"></i>
+          <span>Exercícios</span>
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'avaliacao-list' %}" class="{% if request.resolver_match.url_name == 'avaliacao-list' %}active{% endif %}">
+          <i class="bi bi-heart-pulse-fill"></i>
+          <span>Avaliações</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="{% if request.resolver_match.url_name == 'historico-detail' %}active{% endif %}">
+          <i class="bi bi-clock-history"></i>
+          <span>Histórico</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="sidebar-footer">
+    <a href="#" class="{% if request.resolver_match.url_name == 'perfil' %}active{% endif %}">
+      <i class="bi bi-person-circle"></i>
+      <span>Meu Perfil</span>
+    </a>
+    <a href="#" class="{% if request.resolver_match.url_name == 'configuracoes' %}active{% endif %}">
+      <i class="bi bi-gear-fill"></i>
+      <span>Configurações</span>
+    </a>
+    <hr />
+    <form action="#" method="post">
+      {% csrf_token %}
+      <button type="submit" class="sidebar-logout">
+        <i class="bi bi-box-arrow-right"></i>
+        <span>Sair</span>
+      </button>
+    </form>
+  </div>
+</aside>

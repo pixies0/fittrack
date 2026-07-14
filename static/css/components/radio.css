@@ -1,0 +1,11 @@
+.radio {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.radio input {
+  accent-color: var(--accent);
+}
