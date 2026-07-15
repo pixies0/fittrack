@@ -75,7 +75,7 @@
 
   <div class="sidebar-footer">
     {% if request.user|can_access:'perfil' %}
-      <a href="{% url 'perfil' %}" class="sidebar-link {% if request.resolver_match.url_name == 'perfil' %}active{% endif %}">
+      <a href="{% url 'perfil' %}" class="sidebar-link {% if 'perfil' in request.resolver_match.url_name %}active{% endif %}">
         <i class="fas fa-user-circle"></i>
         <span>Meu Perfil</span>
       </a>

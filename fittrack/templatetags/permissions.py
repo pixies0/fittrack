@@ -17,3 +17,8 @@ def can_access(user, modulo):
     grupos = SIDEBAR_PERMISSIONS.get(modulo, [])
 
     return user.groups.filter(name__in=grupos).exists()
+
+
+@register.filter
+def has_group(user, group_name):
+    return user.groups.filter(name=group_name).exists()

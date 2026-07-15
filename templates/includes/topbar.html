@@ -1,4 +1,6 @@
 {% load static %}
+{% load permissions %}
+
 <header class="topbar">
   <div class="topbar-left">
     <button class="topbar-menu"><i class="bi bi-list"></i></button>
@@ -12,11 +14,24 @@
     <button class="topbar-icon"><i class="bi bi-moon"></i></button>
 
     <div class="topbar-user">
-      <img src="{% static 'img/avatar-default.png' %}" alt="Usuário" />
+      {% if request.user.foto %}
+        <img src="{{ request.user.foto.url }}" />
+      {% else %}
+        <img src="{% static 'img/avatar-default.png' %}" />
+      {% endif %}
 
       <div class="user-info">
-        <strong>{{ user.get_full_name|default:user.username }}</strong>
-        <small>Administrador</small>
+        <strong>{{ request.user.nome }}</strong>
+
+        <small>
+          {% if request.user|has_group:'Administrador' %}
+            Administrador
+          {% elif request.user|has_group:'Professor' %}
+            Professor
+          {% elif request.user|has_group:'Aluno' %}
+            Aluno
+          {% endif %}
+        </small>
       </div>
     </div>
   </div>

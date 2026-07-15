@@ -1,55 +1,128 @@
 {% extends 'base.html' %}
-
 {% load static %}
+{% load permissions %}
 
 {% block title %}
-  Meu Perfil
-{% endblock %}
-
-{% block page_title %}
-  <h1>Meu Perfil</h1>
+  Meu Perfil | FitTrack
 {% endblock %}
 
 {% block content %}
   <div class="profile-page">
-    <div class="profile-cover"></div>
-
-    <div class="profile-summary">
+    <div class="content-card profile-header">
       <div class="profile-user">
-        <img src="{% static 'img/avatar-default.png' %}" class="profile-avatar" />
+        {% if request.user.foto %}
+          <img src="{{ request.user.foto.url }}" class="profile-avatar" />
+        {% else %}
+          <img src="{% static 'img/avatar-default.png' %}" class="profile-avatar" />
+        {% endif %}
 
-        <div>
-          <h2>{{ user.get_full_name }}</h2>
+        <div class="profile-user-info">
+          <h2>{{ request.user.nome }}</h2>
 
-          <p>{{ user.email }}</p>
+          <span>{{ request.user.email }}</span>
+
+          <small>
+            {% if request.user|has_group:'Administrador' %}
+              Administrador
+            {% elif request.user|has_group:'Professor' %}
+              Professor
+            {% else %}
+              Aluno
+            {% endif %}
+          </small>
         </div>
+      </div>
+
+      <div>
+        <a href="#" class="btn btn-primary">
+          <i class="bi bi-pencil"></i>
+          Editar Perfil
+        </a>
       </div>
     </div>
 
-    <div class="profile-grid">
-      <div class="profile-card">
-        <h3>Informações</h3>
+    <div class="content-card">
+      <h3>Informações Pessoais</h3>
 
-        <table class="table">
-          <tr>
-            <th>Usuário</th>
+      <table class="table" style="table-layout:fixed">
+        <colgroup>
+          <col style="width:25%" />
+          <col style="width:75%" />
+        </colgroup>
 
-            <td>{{ user.username }}</td>
-          </tr>
-
+        <tbody>
           <tr>
             <th>Nome</th>
-
-            <td>{{ user.get_full_name }}</td>
+            <td>{{ request.user.nome }}</td>
           </tr>
 
           <tr>
-            <th>Email</th>
-
-            <td>{{ user.email }}</td>
+            <th>CPF</th>
+            <td>{{ request.user.cpf }}</td>
           </tr>
-        </table>
-      </div>
+
+          <tr>
+            <th>E-mail</th>
+            <td>{{ request.user.email }}</td>
+          </tr>
+
+          <tr>
+            <th>Telefone</th>
+            <td>{{ request.user.telefone|default:'Não informado' }}</td>
+          </tr>
+
+          <tr>
+            <th>Grupo</th>
+
+            <td>
+              {% if request.user|has_group:'Administrador' %}
+                Administrador
+              {% elif request.user|has_group:'Professor' %}
+                Professor
+              {% else %}
+                Aluno
+              {% endif %}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-card">
+      <h3>Informações da Conta</h3>
+
+      <table class="table" style="table-layout:fixed">
+        <colgroup>
+          <col style="width:25%" />
+          <col style="width:75%" />
+        </colgroup>
+
+        <tbody>
+          <tr>
+            <th>Último Login</th>
+
+            <td>{{ request.user.last_login|date:'d/m/Y H:i' }}</td>
+          </tr>
+
+          <tr>
+            <th>Cadastro</th>
+
+            <td>{{ request.user.date_joined|date:'d/m/Y' }}</td>
+          </tr>
+
+          <tr>
+            <th>Status</th>
+
+            <td>
+              {% if request.user.is_active %}
+                <span class="badge badge-success">Ativo</span>
+              {% else %}
+                <span class="badge badge-danger">Inativo</span>
+              {% endif %}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 {% endblock %}
