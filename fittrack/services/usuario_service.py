@@ -35,7 +35,6 @@ class UsuarioService:
             telefone=telefone,
         )
 
-
     @staticmethod
     @transaction.atomic
     def criar_aluno(
@@ -71,6 +70,49 @@ class UsuarioService:
         )
 
         return aluno
+
+    @staticmethod
+    @transaction.atomic
+    def atualizar_aluno(
+        *,
+        aluno,
+        nome,
+        cpf,
+        email,
+        telefone,
+        data_nascimento,
+        ativo,
+    ):
+        """
+        Atualiza um aluno e seu usuário associado.
+        """
+
+        usuario = aluno.usuario
+
+        usuario.nome = nome
+        usuario.cpf = cpf
+        usuario.email = email
+        usuario.telefone = telefone
+
+        usuario.save()
+
+        aluno.data_nascimento = data_nascimento
+        aluno.ativo = ativo
+
+        aluno.save()
+
+        return aluno
+
+    @staticmethod
+    @transaction.atomic
+    def remover_aluno(aluno):
+        """
+        Remove um aluno e seu usuário associado.
+        """
+
+        usuario = aluno.usuario
+
+        usuario.delete()
 
     @staticmethod
     @transaction.atomic

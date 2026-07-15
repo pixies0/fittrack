@@ -1,13 +1,10 @@
 from django import forms
 
+from fittrack.models import Aluno
 from fittrack.services.usuario_service import UsuarioService
 
 
-class AlunoCreateForm(forms.Form):
-    """
-    Formulário responsável pelo cadastro de um novo aluno.
-    """
-
+class AlunoUpdateForm(forms.Form):
     nome = forms.CharField(
         label="Nome",
         max_length=150,
@@ -36,41 +33,35 @@ class AlunoCreateForm(forms.Form):
         ),
     )
 
-    password = forms.CharField(
-        label="Senha",
-        widget=forms.PasswordInput(),
+    ativo = forms.BooleanField(
+        label="Ativo",
+        required=False,
     )
 
-    confirmar_password = forms.CharField(
-        label="Confirmar Senha",
-        widget=forms.PasswordInput(),
-    )
+    def __init__(self, *args, instance: Aluno = None, **kwargs):
 
-    def clean(self):
-        """
-        Valida se as senhas informadas são iguais.
-        """
+        self.instance = instance
 
-        cleaned_data = super().clean()
+        super().__init__(*args, **kwargs)
 
-        password = cleaned_data.get("password")
-        confirmar = cleaned_data.get("confirmar_password")
+        if self.instance:
+            self.fields["nome"].initial = instance.usuario.nome
+            self.fields["cpf"].initial = instance.usuario.cpf
+            self.fields["email"].initial = instance.usuario.email
+            self.fields["telefone"].initial = instance.usuario.telefone
 
-        if password != confirmar:
-            raise forms.ValidationError("As senhas não conferem.")
+            self.fields["data_nascimento"].initial = instance.data_nascimento
 
-        return cleaned_data
+            self.fields["ativo"].initial = instance.ativo
 
     def save(self):
-        """
-        Delega a criação do aluno ao UsuarioService.
-        """
 
-        return UsuarioService.criar_aluno(
+        return UsuarioService.atualizar_aluno(
+            aluno=self.instance,
             nome=self.cleaned_data["nome"],
             cpf=self.cleaned_data["cpf"],
             email=self.cleaned_data["email"],
             telefone=self.cleaned_data["telefone"],
             data_nascimento=self.cleaned_data["data_nascimento"],
-            password=self.cleaned_data["password"],
+            ativo=self.cleaned_data["ativo"],
         )

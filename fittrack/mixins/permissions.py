@@ -9,6 +9,7 @@ class LoginRequiredMixin(AccessMixin):
     """
 
     login_url = "login"
+    redirect_field_name = None
 
     def dispatch(self, request, *args, **kwargs):
 

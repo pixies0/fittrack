@@ -18,7 +18,7 @@
         <p>Cadastre, edite e acompanhe os alunos da academia.</p>
       </div>
 
-      <a href="#" class="btn btn-primary">
+      <a href="{% url 'aluno-create' %}" class="btn btn-primary">
         <i class="bi bi-plus-lg"></i>
 
         Novo Aluno
@@ -55,25 +55,33 @@
               <tr>
                 <td>
                   <div class="table-user">
-                    {% if aluno.foto %}
-                      <img src="{{ aluno.foto.url }}" class="avatar avatar-sm" />
+                    {% if aluno.usuario.foto %}
+                      <img src="{{ aluno.usuario.foto.url }}" class="avatar avatar-sm" />
                     {% else %}
                       <img src="{% static 'img/avatar-default.png' %}" class="avatar avatar-sm" />
                     {% endif %}
 
                     <div>
-                      <div class="table-user-name">{{ aluno.nome }}</div>
+                      <div class="table-user-name">{{ aluno.usuario.nome }}</div>
 
-                      <div class="table-user-description">{{ aluno.email }}</div>
+                      <div class="table-user-description">{{ aluno.usuario.email }}</div>
                     </div>
                   </div>
                 </td>
 
-                <td>{{ aluno.cpf }}</td>
+                <td>{{ aluno.usuario.cpf }}</td>
 
-                <td>{{ aluno.telefone }}</td>
+                <td>{{ aluno.usuario.telefone }}</td>
 
-                <td>{{ aluno.plano }}</td>
+                <td>
+                  {% with matricula=aluno.matriculas.first %}
+                    {% if matricula %}
+                      {{ matricula.plano.nome }}
+                    {% else %}
+                      <span class="text-muted">Sem plano</span>
+                    {% endif %}
+                  {% endwith %}
+                </td>
 
                 <td>
                   {% if aluno.ativo %}
@@ -85,11 +93,11 @@
 
                 <td>
                   <div class="table-actions">
-                    <a href="#" class="table-action view"><i class="bi bi-eye"></i></a>
+                    <a href="{% url 'aluno-detail' aluno.pk %}" class="table-action view"><i class="bi bi-eye"></i></a>
 
-                    <a href="#" class="table-action edit"><i class="bi bi-pencil"></i></a>
+                    <a href="{% url 'aluno-update' aluno.pk %}" class="table-action edit"><i class="bi bi-pencil"></i></a>
 
-                    <a href="#" class="table-action delete"><i class="bi bi-trash"></i></a>
+                    <a href="{% url 'aluno-delete' aluno.pk %}" class="table-action delete"><i class="bi bi-trash"></i></a>
                   </div>
                 </td>
               </tr>

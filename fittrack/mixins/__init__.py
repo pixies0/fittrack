@@ -1,15 +1,21 @@
 from .permissions import (
-    LoginRequiredMixin,
-    GroupRequiredMixin,
+    AdministradorOuProfessorRequiredMixin,
+    AdministradorOuAlunoRequiredMixin,
+    UsuarioSistemaRequiredMixin,
     AdministradorRequiredMixin,
     ProfessorRequiredMixin,
+    LoginRequiredMixin,
+    GroupRequiredMixin,
     AlunoRequiredMixin,
 )
 
 __all__ = [
-    "LoginRequiredMixin",
-    "GroupRequiredMixin",
+    "AdministradorOuProfessorRequiredMixin",
+    "AdministradorOuAlunoRequiredMixin",
+    "UsuarioSistemaRequiredMixin",
     "AdministradorRequiredMixin",
     "ProfessorRequiredMixin",
+    "LoginRequiredMixin",
+    "GroupRequiredMixin",
     "AlunoRequiredMixin",
 ]
